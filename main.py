@@ -24,3 +24,5 @@ for key, value in data.items():
   trace (key, ":", value)
 
 print(f"Here's a _____ for you")
+
+print("hi")
