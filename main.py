@@ -25,4 +25,3 @@ for key, value in data.items():
 
 print(f"Here's a _____ for you")
 
-print("hi")
