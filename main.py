@@ -17,11 +17,15 @@ response = requests.get(URL)
 response.raise_for_status()
 data = response.json()
 
-trace ("\nText returned:", response.text)
+#trace ("\nText returned:", response.text)
 
 trace("\nHere are all the key/value paurs in the JSON response:")
 for key, value in data.items():
-  trace (key, ":", value)
+  trace ("\n" + key)
 
-print(f"Here's a _____ for you")
+product = data["product"]
+print (product["allergens_hierarchy"])
+print(f"Always check the allergen information before consuming a new product for your wellbeing.")
+print(f"Here are allergens: {data['allergens_hierarchy']}")
 
+#602652207020
