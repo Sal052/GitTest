@@ -9,9 +9,8 @@ barcode = input("Give me barcode:")
 
 #Establishes webapi
 URL = "https://world.openfoodfacts.org/api/v0/product/" + barcode + ".json"
-print (URL)
 
-trace ("Calling", URL)
+#trace ("Calling", URL)
 response = requests.get(URL)
 response.raise_for_status()
 data = response.json()
