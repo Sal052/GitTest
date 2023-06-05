@@ -20,11 +20,13 @@ data = response.json()
 print("\n" + f"Always check the allergen information before consuming a new product for your wellbeing.")
 
 #Creates variable storing the product information
-product = data["product"]
+products = data["product"]["allergens_hierarchy"]
+
+#Remove extra characters from list items
+products = map(lambda item: item[3:], products)
 
 #Product information is scanned for allergen information and returns it
-print("\n")
-print (product["allergens_hierarchy"])
-
+for product in products:
+  print(product + ", ")
 
 #602652207020
