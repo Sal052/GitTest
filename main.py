@@ -5,15 +5,22 @@ def trace(*args):
   pass
 
 #Barcode is used by webapi to find product information
-barcode = input("Give me barcode:")
-
+invalid = True
 #Establishes webapi
-URL = "https://world.openfoodfacts.org/api/v0/product/" + barcode + ".json"
+while invalid:
+  barcode = input("Give me barcode:")
 
-#trace ("Calling", URL)
-response = requests.get(URL)
-response.raise_for_status()
-data = response.json()
+  URL = "https://world.openfoodfacts.org/api/v0/product/" + barcode + ".json"
+  
+  #trace ("Calling", URL)
+  response = requests.get(URL)
+  response.raise_for_status()
+  data = response.json()
+  
+  if not data["status"] == 1:
+    print("That was not a valid barcode, try again")
+  else:
+    break
 
 #trace ("\nText returned:", response.text)
 
